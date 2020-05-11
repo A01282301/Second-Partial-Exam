@@ -4,7 +4,7 @@ const mongoose = require( 'mongoose' );
 
 //Create the schema
 const sportsSchema = mongoose.Schema({
-    id: { //Id must be unique
+    id: { //Id must be unique //Tambien pude usar uuid como en el lab pero no lo recuerdo en este momento
         type : Number,
         required : true,
         unique : true
@@ -23,13 +23,12 @@ const sportsSchema = mongoose.Schema({
 //We create the collection for the database
 const sportCollection = mongoose.model('sports', sportsSchema);
 
-
 //Here we create the endpoint function list
 //Adds the new created sport to the database
 const functionlist = {
     addSport: function (name, num_players, id) {
         let newsport = {id, name, num_players};
-        return sportCollection.create(newSport).then( added =>{
+        return sportCollection.create(newsport).then( added =>{
             return added;
         }).catch( err => {
             return err;
