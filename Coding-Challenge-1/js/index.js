@@ -47,6 +47,9 @@ function getpokemon(searchpokemon){
         responseJSON => {
             show(responseJSON);
         }
+    ).catch( err => {
+        console.log("Pokémon not found");
+    }
     )
 
     console.log(searchpokemon);
